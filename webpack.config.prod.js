@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DotenvPlugin = require('webpack-dotenv-plugin');
+const Dotenv = require('dotenv-webpack');
+
 
 require('dotenv').config();
 
@@ -30,9 +31,8 @@ module.exports = {
             template: './index.html',
             inject: 'body',
         }),
-        new DotenvPlugin({
-          sample: '.env.sample',
-          path: './.env.prod',
+        new Dotenv({
+            path: './.env.prod'
         })
     ]
 }
